@@ -1,0 +1,7 @@
+require 'rubygems'
+require 'cucumber'
+require 'cucumber/rake/task'
+
+Cucumber::Rake::Task.new(:smoke) do |t|
+  t.cucumber_opts = "features --tags @smoke"
+end

@@ -1,0 +1,7 @@
+source 'https://rubygems.org'
+
+gem "capybara-touch", git: "git://github.com/lazerwalker/capybara-touch"
+gem "site_prism"
+gem "selenium-webdriver"
+gem "capybara"
+gem "cucumber"
