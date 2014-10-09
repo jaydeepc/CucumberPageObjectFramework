@@ -29,9 +29,7 @@ new_dir_path = dir_path + '/screenshots/' + time
 
 unless Dir.exist?(new_dir_path)
   FileUtils::mkdir_p(new_dir_path)
-  puts "=========Directory is created at #{new_dir_path}"
 else
-  puts "=========Directory exists at #{new_dir_path}"
 end
 
 #Run after each scenario
@@ -39,7 +37,6 @@ After do |scenario|
   #Check, scenario is failed?
   if(scenario.failed?)
     name_of_scenario = time + scenario.name.gsub(/\s+/, "_").gsub("/","_")
-    puts "Name of snapshot is #{name_of_scenario}"
     file_path = File.expand_path(new_dir_path)+'/'+name_of_scenario +'.png'
     sleep 1
     page.driver.browser.save_screenshot file_path
