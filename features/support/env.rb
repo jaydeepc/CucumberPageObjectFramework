@@ -5,16 +5,17 @@ require 'capybara'
 require 'cucumber'
 require 'fileutils'
 
+CONFIG = YAML.load_file("features/support/config.yml")
 #initialize a new Driver
 Capybara.register_driver :iphone do |app|
   caps = {
-      :deviceName => 'iPhone Simulator',
-      :browserName => 'Safari',
-      :platformName => 'iOS',
-      :versionNumber => '7.1'
+      :deviceName => CONFIG['device_name'],
+      :browserName => CONFIG['browser_name'],
+      :platformName => CONFIG['platform_name'],
+      :versionNumber => CONFIG['version_name']
   }
 
-  Capybara::Selenium::Driver.new(app, {:browser => :remote, :url => 'http://localhost:4723/wd/hub/', :desired_capabilities => caps})
+  Capybara::Selenium::Driver.new(app, {:browser => :remote, :url => CONFIG['appium_server'], :desired_capabilities => caps})
 end
 
 Capybara.default_driver = :iphone

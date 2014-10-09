@@ -1,0 +1,4 @@
+/screenshots
+*.lock
+*.DS_Store
+.idea/workspace.xml
