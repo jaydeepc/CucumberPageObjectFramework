@@ -15,5 +15,5 @@ task :stop_appium_server do
 end
 
 Cucumber::Rake::Task.new(:smoke => [:start_appium_server, :stop_appium_server])do |t|
-  t.cucumber_opts = "features --tags @smoke"
+  t.cucumber_opts = "features --tags @smoke -f json --out report.json"
 end
