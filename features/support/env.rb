@@ -25,7 +25,7 @@ Capybara.app_host = 'https://www.sabergrills.com'
 #Take ScreenShots on Failure
 dir_path = Dir.pwd
 time = Time.now.strftime('%Y_%m_%d_%Y_%H_%M_%S_')
-new_dir_path = dir_path + '/screenshots/' + time
+new_dir_path = dir_path + '/features/screenshots/' + time
 
 unless Dir.exist?(new_dir_path)
   FileUtils::mkdir_p(new_dir_path)

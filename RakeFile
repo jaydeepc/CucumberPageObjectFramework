@@ -2,6 +2,18 @@ require 'rubygems'
 require 'cucumber'
 require 'cucumber/rake/task'
 
-Cucumber::Rake::Task.new(:smoke) do |t|
+task :start_appium_server do
+  puts 'Starting Appium Server .......'
+  system 'appium &'
+  puts 'Appium server started......'
+end
+
+task :stop_appium_server do
+  puts 'Stopping Appium Server .......'
+  puts 'Stopped Appium Server.........'
+  #Need to put some code here
+end
+
+Cucumber::Rake::Task.new(:smoke => [:start_appium_server, :stop_appium_server])do |t|
   t.cucumber_opts = "features --tags @smoke"
 end
